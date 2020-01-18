@@ -21,19 +21,18 @@ export default {
 	plugins: [
 		...
 		copy({
-		targets: [
-			{
-			src: "node_modules/pdfjs-dist/build/pdf.worker.min.js",
-			dest: "public/pdfjs"
-			},
-			{
-			src: "node_modules/pdfjs-dist/cmaps/**/*",
-			dest: "public/pdfjs/cmaps"
-			}
-		]
+			targets: [
+				{
+					src: "node_modules/pdfjs-dist/build/pdf.worker.min.js",
+					dest: "public/pdfjs"
+				},
+				{
+					src: "node_modules/pdfjs-dist/cmaps/**/*",
+					dest: "public/pdfjs/cmaps"
+				}
+			]
 		}),
-    	builtins(),
-		commonjs(),
+		builtins(),
 		...
 	]
 	...
