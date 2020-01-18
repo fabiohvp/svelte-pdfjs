@@ -106,6 +106,13 @@
     overflow: hidden;
     opacity: 0.2;
     line-height: 1;
+    border-bottom: 1px solid black;
+  }
+
+  @media print {
+    .pdfjs-container :global(.textLayer) {
+      border-bottom: none;
+    }
   }
 
   .pdfjs-container :global(.textLayer > span) {
