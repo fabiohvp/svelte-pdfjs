@@ -44,7 +44,7 @@
 
     // Loading document.
     const loadingTask = pdfjs.getDocument({
-      src,
+      url: src,
       ...documentOptions
     });
 
