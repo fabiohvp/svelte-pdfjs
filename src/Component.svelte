@@ -417,10 +417,8 @@
     direction: ltr;
     width: 816px;
     height: 1056px;
-    margin: 1px auto -8px auto;
     position: relative;
     overflow: visible;
-    border: 9px solid transparent;
     background-clip: content-box;
     background-color: white;
   }
