@@ -32,6 +32,11 @@ export default {
 				}
 			]
 		}),
+		...
+		resolve({
+			...
+			preferBuiltins: true
+		}),
 		builtins(),
 		...
 	]
