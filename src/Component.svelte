@@ -29,7 +29,8 @@
   let pdfViewer;
 
   async function load(src) {
-    const pdfjsViewer = await import("pdfjs-dist/web/pdf_viewer.js");
+    let pdfjsViewer = await import("pdfjs-dist/web/pdf_viewer.js");
+    pdfjsViewer = pdfjsViewer.default;
     // (Optionally) enable hyperlinks within PDF files.
     const pdfLinkService = new pdfjsViewer.PDFLinkService();
 
