@@ -1,43 +1,43 @@
 {
-  "name": "@fabiohvp/svelte-pdfjs",
-  "svelte": "src/index.js",
-  "module": "dist/index.mjs",
-  "main": "dist/index.js",
-  "scripts": {
-    "build": "rollup -c",
-    "prepublishOnly": "npm run build"
-  },
-  "devDependencies": {
-    "@rollup/plugin-commonjs": "^11.0.1",
-    "@rollup/plugin-node-resolve": "^6.0.0",
-    "rollup": "^1.20.0",
-    "rollup-plugin-node-builtins": "^2.1.2",
-    "rollup-plugin-postcss": "^2.0.3",
-    "rollup-plugin-svelte": "^5.0.0",
-    "svelte": "^3.0.0"
-  },
-  "keywords": [
-    "svelte",
-    "pdfjs",
-    "pdf-js"
-  ],
-  "files": [
-    "src",
-    "dist"
-  ],
-  "description": "Svelte-pdfjs - a simple way to render your pdfs",
-  "version": "0.0.5",
-  "dependencies": {
-    "pdfjs-dist": "^2.3.200"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/fabiohvp/svelte-pdfjs.git"
-  },
-  "author": "https://github.com/fabiohvp",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/fabiohvp/svelte-pdfjs/issues"
-  },
-  "homepage": "https://github.com/fabiohvp/svelte-pdfjs#readme"
+	"name": "@fabiohvp/svelte-pdfjs",
+	"svelte": "src/index.js",
+	"module": "dist/index.mjs",
+	"main": "dist/index.js",
+	"scripts": {
+		"build": "rollup -c",
+		"prepublishOnly": "npm run build"
+	},
+	"devDependencies": {
+		"@rollup/plugin-commonjs": "^11.0.1",
+		"@rollup/plugin-node-resolve": "^6.0.0",
+		"rollup": "^1.20.0",
+		"rollup-plugin-node-builtins": "^2.1.2",
+		"rollup-plugin-postcss": "^2.0.3",
+		"rollup-plugin-svelte": "^5.0.0",
+		"svelte": "^3.0.0"
+	},
+	"dependencies": {
+		"pdfjs-dist": "^2.3.200"
+	},
+	"keywords": [
+		"svelte",
+		"pdfjs",
+		"pdf-js"
+	],
+	"files": [
+		"src",
+		"dist"
+	],
+	"description": "Svelte-pdfjs - a simple way to render your pdfs",
+	"version": "0.0.5",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/fabiohvp/svelte-pdfjs.git"
+	},
+	"author": "https://github.com/fabiohvp",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/fabiohvp/svelte-pdfjs/issues"
+	},
+	"homepage": "https://github.com/fabiohvp/svelte-pdfjs#readme"
 }

@@ -9,7 +9,6 @@
 <script>
   import { createEventDispatcher, onDestroy, onMount } from "svelte";
   import pdfjs from "pdfjs-dist";
-  import pdfjsViewer from "pdfjs-dist/web/pdf_viewer.js";
 
   pdfjs.GlobalWorkerOptions.workerSrc = workerSrc;
 
@@ -29,7 +28,8 @@
   let containerRef;
   let pdfViewer;
 
-  function load(src) {
+  async function load(src) {
+    const pdfjsViewer = await import("pdfjs-dist/web/pdf_viewer.js");
     // (Optionally) enable hyperlinks within PDF files.
     const pdfLinkService = new pdfjsViewer.PDFLinkService();
 
