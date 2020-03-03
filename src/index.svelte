@@ -53,7 +53,7 @@
     if (pdfViewer) {
       // We can use pdfViewer now, e.g. let's change default scale.
       pdfViewer.currentScaleValue = scale;
-      dispatch("load", pdfViewer);
+      dispatch("load", { src, pdfViewer, element: containerRef });
     }
   }
 </script>
