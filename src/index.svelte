@@ -63,7 +63,9 @@
   }
 
   onMount(() => {
-    document.addEventListener("pagesinit", pagesInit);
+    if (process.browser) {
+      document.addEventListener("pagesinit", pagesInit);
+    }
   });
 
   onDestroy(() => {
