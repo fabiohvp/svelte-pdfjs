@@ -1,18 +1,18 @@
 {
 	"name": "@fabiohvp/svelte-pdfjs",
-	"svelte": "src/index.js",
-	"module": "dist/index.mjs",
-	"main": "dist/index.js",
+	"svelte": "src/index.svelte",
+	"module": "index.mjs",
+	"main": "index.js",
 	"scripts": {
 		"build": "rollup -c",
 		"prepublishOnly": "npm run build"
 	},
 	"devDependencies": {
-		"@rollup/plugin-commonjs": "^11.0.1",
-		"@rollup/plugin-node-resolve": "^6.0.0",
-		"rollup": "^1.20.0",
+		"rollup-plugin-commonjs": "^9.2.0",
 		"rollup-plugin-node-builtins": "^2.1.2",
 		"rollup-plugin-postcss": "^2.0.3",
+		"rollup": "^1.11.0",
+		"rollup-plugin-node-resolve": "^4.0.0",
 		"rollup-plugin-svelte": "^5.0.0",
 		"svelte": "^3.0.0"
 	},
@@ -26,7 +26,9 @@
 	],
 	"files": [
 		"src",
-		"dist"
+		"index.mjs",
+		"index.js",
+		"PDFJS.js"
 	],
 	"description": "Svelte-pdfjs - a simple way to render your pdfs",
 	"version": "0.0.9",

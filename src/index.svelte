@@ -9,6 +9,7 @@
 <script>
   import { createEventDispatcher, onDestroy, onMount } from "svelte";
   import pdfjs from "pdfjs-dist";
+  import pdfjsViewer from "pdfjs-dist/web/pdf_viewer.js";
 
   pdfjs.GlobalWorkerOptions.workerSrc = workerSrc;
 
@@ -29,25 +30,19 @@
   let pdfViewer;
 
   async function load(src) {
-    let pdfjsViewer = await import("pdfjs-dist/web/pdf_viewer.js");
-    pdfjsViewer = pdfjsViewer.default;
     // (Optionally) enable hyperlinks within PDF files.
     const pdfLinkService = new pdfjsViewer.PDFLinkService();
-
     pdfViewer = new pdfjsViewer.PDFViewer({
       container: containerRef,
       linkService: pdfLinkService,
       ...pdfViewerOptions
     });
-
     pdfLinkService.setViewer(pdfViewer);
-
     // Loading document.
     const loadingTask = pdfjs.getDocument({
       url: src,
       ...documentOptions
     });
-
     loadingTask.promise.then(function(pdfDocument) {
       // Document loaded, specifying document for the viewer and the (optional) linkService.
       pdfViewer.setDocument(pdfDocument);
@@ -67,13 +62,14 @@
     }
   }
 
-  onMount(async () => {
-    //load(src);
+  onMount(() => {
     document.addEventListener("pagesinit", pagesInit);
   });
 
-  onDestroy(async () => {
-    document.removeEventListener("pagesinit", pagesInit);
+  onDestroy(() => {
+    if (process.browser) {
+      document.removeEventListener("pagesinit", pagesInit);
+    }
   });
 </script>
 
