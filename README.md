@@ -1,12 +1,14 @@
 # Svelte-pdfjs
 
-a simple way to render your pdfs.
+a simple way to render your pdfs. (only works with code-splitting)
 
 `npm install @fabiohvp/svelte-pdfjs`  
 or  
 `yarn add @fabiohvp/svelte-pdfjs`
 
-this package requires some additional settings on rollup.
+Sapper version needs to be imported as **devDependency**
+
+Also this package requires some additional settings on rollup.
 
 1. You need to install **rollup-plugin-node-builtins** and **rollup-plugin-copy** (devDependencies)
 2. Inside your rollup.config.js you need to import them and do as follow:
