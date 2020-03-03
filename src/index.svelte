@@ -1,17 +1,5 @@
-<script context="module">
-  let workerSrc = "/pdfjs/pdf.worker.min.js";
-
-  export function setWorkerSrc(src) {
-    workerSrc = src;
-  }
-</script>
-
 <script>
   import { createEventDispatcher, onDestroy, onMount } from "svelte";
-  import pdfjs from "pdfjs-dist";
-  import pdfjsViewer from "pdfjs-dist/web/pdf_viewer.js";
-
-  pdfjs.GlobalWorkerOptions.workerSrc = workerSrc;
 
   const dispatch = createEventDispatcher();
 
@@ -19,6 +7,7 @@
   export let scale = "page-width";
   export let cMapSrc = "/pdfjs/cmaps";
   export let cMapPacked = true;
+  export let workerSrc = "/pdfjs/pdf.worker.min.js";
 
   export let pdfViewerOptions = {};
   export let documentOptions = {
@@ -30,6 +19,12 @@
   let pdfViewer;
 
   async function load(src) {
+    let pdfjs = await import("pdfjs-dist");
+    let pdfjsViewer = await import("pdfjs-dist/web/pdf_viewer.js");
+    pdfjs = pdfjs.default;
+    pdfjs.GlobalWorkerOptions.workerSrc = workerSrc;
+    pdfjsViewer = pdfjsViewer.default;
+
     // (Optionally) enable hyperlinks within PDF files.
     const pdfLinkService = new pdfjsViewer.PDFLinkService();
     pdfViewer = new pdfjsViewer.PDFViewer({
@@ -61,18 +56,6 @@
       dispatch("load", pdfViewer);
     }
   }
-
-  onMount(() => {
-    if (process.browser) {
-      document.addEventListener("pagesinit", pagesInit);
-    }
-  });
-
-  onDestroy(() => {
-    if (process.browser) {
-      document.removeEventListener("pagesinit", pagesInit);
-    }
-  });
 </script>
 
 <style>
@@ -544,6 +527,8 @@
     border: 0;
   }
 </style>
+
+<svelte:window on:pagesinit={pagesInit} />
 
 <div class={'pdfjs-container ' + $$props.class} bind:this={containerRef}>
   <div class="pdfViewer" />
