@@ -397,6 +397,10 @@
   .pdfjs-container :global(.annotationLayer .fileAttachmentAnnotation) {
     cursor: pointer;
   }
+    
+  .pdfjs-container :global(.pdfViewer *) {
+    max-width:100%;
+  }
 
   .pdfjs-container :global(.pdfViewer .canvasWrapper) {
     overflow: hidden;
